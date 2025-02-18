@@ -12,7 +12,7 @@ export const fetchGetPosts = () => {
   getPosts().then((responseData) => {
     posts = responseData.posts.map(post => {
       return {
-        id: post.id,
+        postId: post.id,
         imageUrl: post.imageUrl,
         date: formatDistance(new Date(), new Date(post.createdAt), {locale: ru}),
         description: post.description,
@@ -45,7 +45,7 @@ export function renderPostsPageComponent({ appEl, posts }) {
               <img class="post-image" src="${post.imageUrl}">
             </div>
             <div class="post-likes">
-              <button data-post-id="${post.id}" data-index="${index}" data-like="${post.isLiked}" class='like-button' ${post.isLiked}>
+              <button data-post-id="${post.postId}" data-index="${index}" data-like="${post.isLiked}" class='like-button' ${post.isLiked}>
               <img src="assets/images/${post.isLiked ? "like-active.svg" : "like-not-active.svg"}"> 
               </button>
               </button>
@@ -81,7 +81,7 @@ export function renderPostsPageComponent({ appEl, posts }) {
   
   for (const button of document.querySelectorAll(".like-button")) {
     button.addEventListener('click', () => {
-      const id = button.dataset.id;
+      const id = button.dataset.postId;
       const index = button.dataset.index;
       if (!getToken()) {
         alert("Лайкать посты могут только авторизованные пользователи")    
@@ -134,7 +134,7 @@ export function renderPostsPageComponent({ appEl, posts }) {
                 <img class="post-image" src="${post.imageUrl}">
               </div>
               <div class="post-likes">
-                <button data-post-id="${post.id}" data-index=${index} class="like-button" ${post.isLiked}>
+                <button data-post-id="${post.postId}" data-index=${index} class="like-button" ${post.isLiked}>
                 <img src="assets/images/${post.isLiked ? "like-active" : "like-not-active"}.svg">
                 </button>
                 <p class="post-likes-text">
