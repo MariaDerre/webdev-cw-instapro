@@ -69,9 +69,6 @@ export function renderAuthPageComponent({ appEl, setUser }) {
     if (uploadImageContainer) {
       renderUploadImageComponent({
         element: appEl.querySelector(".upload-image-container"),
-        onImageUrlChange(newImageUrl) {
-          imageUrlUser = newImageUrl;
-        },
       });
     }
 
