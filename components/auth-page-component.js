@@ -4,7 +4,7 @@ import { renderUploadImageComponent } from "./upload-image-component.js";
 
 export function renderAuthPageComponent({ appEl, setUser }) {
   let isLoginMode = true;
-  let imageUrl = "";
+  let imageUrlUser = "";
 
   const renderForm = () => {
     const appHtml = `
@@ -70,7 +70,7 @@ export function renderAuthPageComponent({ appEl, setUser }) {
       renderUploadImageComponent({
         element: appEl.querySelector(".upload-image-container"),
         onImageUrlChange(newImageUrl) {
-          imageUrl = newImageUrl;
+          imageUrlUser = newImageUrl;
         },
       });
     }
@@ -121,7 +121,7 @@ export function renderAuthPageComponent({ appEl, setUser }) {
           return;
         }
 
-        if (!imageUrl) {
+        if (!imageUrlUser) {
           alert("Не выбрана фотография");
           return;
         }
@@ -130,7 +130,7 @@ export function renderAuthPageComponent({ appEl, setUser }) {
           login: login,
           password: password,
           name: name,
-          imageUrl,
+          imageUrlUser,
         })
           .then((user) => {
             setUser(user.user);
