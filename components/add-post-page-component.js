@@ -46,6 +46,6 @@ export function renderAddPostPageComponent({ appEl, onAddPostClick }) {
       );
     });
   };
-
   render();
 }
+
