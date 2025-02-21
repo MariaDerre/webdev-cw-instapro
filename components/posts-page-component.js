@@ -78,7 +78,6 @@ export function renderPostsPageComponent({ appEl, posts }) {
     element: document.querySelector(".header-container"),
   });
 
-  
   for (const button of document.querySelectorAll(".like-button")) {
     button.addEventListener('click', () => {
       const id = button.dataset.postId;

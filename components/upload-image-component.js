@@ -22,9 +22,8 @@ export function renderUploadImageComponent({ element }) {
                   style="display:none"
                 />
                 Выберите фото
-            </label>
-          
-      `
+            </label>  
+            `
       }
   </div>
 `;
