@@ -1,16 +1,16 @@
 import { uploadImage } from "../api.js";
 
 export function renderUploadImageComponent({ element }) {
-  let imageUrlUser = "";
+  let imageUrl = "";
 
   const render = () => {
     element.innerHTML = `
   <div class="upload=image">
       ${
-        imageUrlUser
+        imageUrl
           ? `
           <div class="file-upload-image-conrainer">
-            <img class="file-upload-image" src="${imageUrlUser}">
+            <img class="file-upload-image" src="${imageUrl}">
             <button class="file-upload-remove-button button">Заменить фото</button>
           </div>
           `
@@ -38,7 +38,7 @@ export function renderUploadImageComponent({ element }) {
         lableEl.setAttribute("disabled", true);
         lableEl.textContent = "Загружаю файл...";
         uploadImage({ file }).then(({ fileUrl }) => {
-          imageUrlUser = fileUrl;
+          imageUrl = fileUrl;
           render();
         });
       }
@@ -47,7 +47,7 @@ export function renderUploadImageComponent({ element }) {
     element
       .querySelector(".file-upload-remove-button")
       ?.addEventListener("click", () => {
-        imageUrlUser = "";
+        imageUrl = "";
 
         render();
       });

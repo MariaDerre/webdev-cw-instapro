@@ -1,6 +1,7 @@
 import { renderHeaderComponent } from "./header-component.js";
 import { renderUploadImageComponent } from "./upload-image-component.js";
 import {addPost} from "../api.js"
+import { renderPostsPageComponent, posts } from "./posts-page-component.js";
 
 export function renderAddPostPageComponent({ appEl, onAddPostClick }) {
   const render = () => {
@@ -44,6 +45,7 @@ export function renderAddPostPageComponent({ appEl, onAddPostClick }) {
           document.querySelector(".textarea").value,
           document.querySelector(".file-upload-image").src,) 
       );
+      renderPostsPageComponent({ appEl: document.getElementById('app'), posts });
     });
   };
 

@@ -20,7 +20,7 @@ export const fetchGetPosts = () => {
           idUser: post.user.id,
           name: post.user.name,
           login: post.user.login,
-          imageUrlUser: post.user.imageUrlUser
+          imageUrlUser: post.user.imageUrl
         },
         likes: post.likes,
         isLiked: post.isLiked || false,

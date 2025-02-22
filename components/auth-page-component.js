@@ -118,7 +118,7 @@ export function renderAuthPageComponent({ appEl, setUser }) {
           return;
         }
 
-        if (!imageUrlUser) {
+        if (document.querySelector(".file-upload-image").src == null) {
           alert("Не выбрана фотография");
           return;
         }
@@ -127,7 +127,7 @@ export function renderAuthPageComponent({ appEl, setUser }) {
           login: login,
           password: password,
           name: name,
-          imageUrlUser,
+          imageUrl: document.querySelector(".file-upload-image").src,
         })
           .then((user) => {
             setUser(user.user);
