@@ -1,4 +1,4 @@
-import { getToken } from "../webdev-cw-instapro-main/index.js";
+import { getToken } from "./index.js";
 
 // "боевая" версия инстапро лежит в ключе prod
 const personalKey = "prod";
